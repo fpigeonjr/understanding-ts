@@ -1,36 +1,15 @@
-type Combinable = number | string
-type ConversionDesc = 'as-text' | 'as-number'
-
-function combine(
-  input1: Combinable,
-  input2: Combinable,
-  resultConversion: ConversionDesc
-) {
-  let result
-  if (
-    (typeof input1 === 'number' && typeof input2 === 'number') ||
-    resultConversion == 'as-number'
-  ) {
-    result = +input1 + +input2
-  } else {
-    result = input1.toString() + ' and ' + input2.toString()
-  }
-  return result
-  // if (resultConversion === 'as-number') {
-  //     return +result
-  //   } else {
-  //     return result.toString()
-  //   }
+function add(n1: number, n2: number) {
+  return n1 + n2
 }
 
-const combineStringAges = combine('20', '30', 'as-number')
-console.log(combineStringAges)
+function printResult(num: number): void {
+  console.log('Result: ' + num)
+}
 
-const combinedAges = combine(30, 26, 'as-number')
-console.log(combinedAges)
+printResult(add(5, 55))
 
-const combineNames = combine('Frank', 'Kay', 'as-text')
-console.log(combineNames)
+let combineValues: (a: number, b: number)  => number
 
-const combineLovers = combine('Kurt', 'Jane', 'as-text')
-console.log(combineLovers)
+combineValues = add
+
+console.log(combineValues(8, 8))
